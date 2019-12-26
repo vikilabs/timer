@@ -12,7 +12,10 @@ int8_t init_timer(etimer_t *timer)
 {
     if(!timer)
         return -1;
-
+    
+    if(timer->initialized == 1)
+        return -1;
+    
     memset(timer, 0x0, sizeof(etimer_t));
     timer->initialized = 1;
     return 0;
