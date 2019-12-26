@@ -79,4 +79,26 @@ double get_elapsed_time_now(etimer_t *timer)
 }
 
 
+/* 1. restart timer 
+ * 2. Do nothing if timer is already running
+ * 
+ * prerequisite:
+ *      init_timer() before calling start timer
+ */
+int8_t restart_timer(etimer_t *timer)
+{
+    if(!timer)
+        return -1;
+
+    if(!timer->initialized)
+        return -1;
+  
+    timer->started = 0;
+
+    time(&timer->s_time);
+    timer->started = 1;
+    return 0;
+}
+
+
 

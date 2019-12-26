@@ -36,4 +36,6 @@ extern int8_t stop_timer(etimer_t *timer);
  */
 extern double get_elapsed_time_now(etimer_t *timer);
 
+extern int8_t restart_timer(etimer_t *timer);
+
 #endif
